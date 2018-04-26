@@ -1,0 +1,184 @@
+body{
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.chat_textarea {
+  font-size: 15px;
+}
+
+h2 {
+  border-bottom: 2px solid blue;
+}
+
+.search_form {
+  display: inline;
+  float: right;
+}
+
+.talk_header {
+
+}
+
+input.chat_submit {
+  width: 90px;
+  height: 35px;
+  background-color: #dfefff;
+}
+
+ul {
+  list-style: none;
+}
+
+.posted_chat.login_user {
+  float: left;
+  background-color: #dfefff;
+  border: 2px groove #383ff7;
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom:20px;
+  display: inline-block;
+  font-size: 17px;
+  width: auto;
+}
+
+.show_stamp1 {
+  display: inline-block;
+}
+
+.posted_chat.guest_user {
+  float: right;
+  background-color: #d9f779;
+  border: 2px groove green;
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom:20px;
+  display: inline-block;
+  font-size: 17px;
+  width: auto;
+}
+
+.posted_stamp.login_user {
+  float: left;
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom:20px;
+  display: inline-block;
+  width: auto;
+}
+
+.posted_stamp.guest_user {
+  float: right;
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom:20px;
+  display: inline-block;
+  width: auto;
+}
+
+.show_stamp {
+  display: inline-block;
+}
+
+.user_info {
+  font-size: 5px;
+}
+
+.container {
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+h1 {
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+}
+
+.header {
+
+}
+
+.home_btn {
+  height: 25px;
+  width: 40px;
+  font-weight: lighter;
+  text-align: center;
+  border:1px solid #38aef0;
+  color: black;
+  padding: 5px 20px;
+}
+
+.header_btn {
+  height: 25px;
+  width: 40px;
+  font-weight: lighter;
+  text-align: center;
+  border:1px solid #38aef0;
+  color: black;
+  padding: 5px 20px;
+}
+
+.log_user {
+  float: right;
+}
+
+.room_show {
+  display: block;
+}
+
+.del_btn {
+  display: inline-block;
+}
+/* 吹き出し */
+.a {
+  position: relative;
+}
+.reaction_box {
+  position: absolute;
+  top: -18px;
+  text-align: center;
+
+  background-color: #f9e3e5;
+  border: 2px solid #e50014;
+  border-radius: 50px;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  display: none;
+}
+
+.box-1 {
+  left: 120px;
+}
+.box-2 {
+  left: 150px;
+}
+.box-3 {
+  left: 180px;
+}
+
+.b {
+  display: block;
+}
+ /* 吹き出し */
+/* index */
+
+.index_table, td, th {
+  border: 3px solid skyblue;
+}
+.index_table {
+  width: 700px;
+  text-align: center;
+}
+.join_user{
+
+}
+.join_user_box {
+  with: 150px;
+  height: auto;
+  border: 1px solid black;
+}
