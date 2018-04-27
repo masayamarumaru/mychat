@@ -15,10 +15,10 @@ class AddConstraintBodyToChatsTable extends Migration
     {
       Schema::table('chats', function (Blueprint $table) {
         $table
-          ->foreign('stamp_id')
-          ->references('id')
-          ->on('stamps')
-          ->onDelete('cascade');
+            ->foreign('stamp_id')
+            ->references('id')
+            ->on('stamps')
+            ->onDelete('cascade');
        });
     }
 
@@ -30,5 +30,8 @@ class AddConstraintBodyToChatsTable extends Migration
     public function down()
     {
         //
+        Schema::table('chats', function (Blueprint $table) {
+            $table->dropForeign(['stamp_id']);
+        });
     }
 }

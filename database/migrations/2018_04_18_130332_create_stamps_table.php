@@ -15,7 +15,7 @@ class CreateStampsTable extends Migration
     {
         Schema::create('stamps', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('stamp_path');
+            $table->unsignedInteger('stamp_path')->nullable();
             $table->timestamps();
         });
     }

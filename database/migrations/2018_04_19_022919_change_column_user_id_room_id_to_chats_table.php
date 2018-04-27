@@ -14,10 +14,8 @@ class ChangeColumnUserIdRoomIdToChatsTable extends Migration
     public function up()
     {
         Schema::table('chats', function (Blueprint $table) {
-
-        $table->dropForeign(['user_id']);
-
-      });
+            $table->dropForeign(['user_id']);
+        });
     }
 
     /**
@@ -27,6 +25,11 @@ class ChangeColumnUserIdRoomIdToChatsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('chats', function (Blueprint $table) {
+            $table
+                ->foreign('user_id')
+                ->references('id')
+                ->on('users');
+        });
     }
 }

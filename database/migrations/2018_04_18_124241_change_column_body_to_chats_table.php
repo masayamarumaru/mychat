@@ -26,6 +26,10 @@ class ChangeColumnBodyToChatsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('chats', function (Blueprint $table) {
+            $table->string('body')->nullable(false)->change();
+            $table->dropColumn(['stamp_id']);
+        });
+        
     }
 }
