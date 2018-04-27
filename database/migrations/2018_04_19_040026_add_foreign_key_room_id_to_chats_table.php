@@ -13,15 +13,15 @@ class AddForeignKeyRoomIdToChatsTable extends Migration
      */
     public function up()
     {
-      Schema::table('chats', function (Blueprint $table) {
+        Schema::table('chats', function (Blueprint $table) {
 
-      $table
-        ->foreign('room_id')
-        ->references('id')
-        ->on('rooms')
-        ->onDelete('cascade');
+            $table
+                ->foreign('room_id')
+                ->references('id')
+                ->on('rooms')
+                ->onDelete('cascade');
 
-    });
+        });
     }
 
     /**
@@ -31,6 +31,9 @@ class AddForeignKeyRoomIdToChatsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('chats', function (Blueprint $table) {
+            $table->dropForeign(['room_id']);
+        });
+        
     }
 }

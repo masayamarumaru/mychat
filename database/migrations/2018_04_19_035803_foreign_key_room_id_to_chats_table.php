@@ -27,6 +27,11 @@ class ForeignKeyRoomIdToChatsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('chats', function (Blueprint $table) {
+            $table
+                ->foreign('room_id')
+                ->references('id')
+                ->on('rooms');
+        });
     }
 }
