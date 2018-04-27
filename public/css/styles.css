@@ -177,6 +177,7 @@ h1 {
   position: relative;
 }
 .join_user_box {
+  /* */
   background: #f9e3e5;
   padding: 5px;
   with: 150px;
