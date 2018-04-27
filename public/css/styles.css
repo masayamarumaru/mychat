@@ -165,20 +165,30 @@ h1 {
   display: block;
 }
  /* 吹き出し */
-/* index */
 
+/* index */
 .index_table, td, th {
   border: 3px solid skyblue;
 }
 .index_table {
   width: 700px;
-  text-align: center;
 }
-.join_user{
-
+.join_users{
+  position: relative;
 }
 .join_user_box {
+  background: #f9e3e5;
+  padding: 5px;
   with: 150px;
   height: auto;
   border: 1px solid black;
+  border-radius: 5px;
+  position: absolute;
+  right: -80px;
+  top: -50px;
+  display: none;
 }
+.join_user_box_block {
+  display: block;
+}
+/* index/ */
