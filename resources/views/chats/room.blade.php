@@ -86,12 +86,12 @@
               <input class="chat_delete_btn" type="submit" value="X">
           </form>
         </div>
-        <div class="reaction_box box-2">
+        <!-- <div class="reaction_box box-2">
           2
         </div>
         <div class="reaction_box box-3">
 
-        </div>
+        </div> -->
 
     </li>
     <div style="clear:both"> </div>

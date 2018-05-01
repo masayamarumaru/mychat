@@ -1,15 +1,27 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>edit room</title>
+@extends('layouts.default')
 
-  </head>
-  <body>
-    <h1>ファイルダウンロード</h1>
-    <a href="/admin">管理者メニュートップ</a>
-    <div class="">
-      <a href="/admin/file_create">Excel作成</a>    
-    </div>
-  </body>
-</html>
+@section('title', 'edit room')
+
+@section('header')
+
+@endsection
+
+@section('menu', 'ファイルダウンロード')
+
+@section('header-btn')
+
+@endsection
+
+@section('content')
+  <a href="/admin">管理者メニュートップ</a>
+  <h2>ダウンロード</h2>
+
+  <div class="">
+    <a href="/admin/file_create">Excel作成</a>
+  </div>
+
+@endsection
+
+@section('ajax')
+
+@endsection
