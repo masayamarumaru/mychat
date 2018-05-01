@@ -59,8 +59,16 @@ h1 {
   background: #eaf9d4;
   border: 2px solid #01b236;
   border-radius: 10px;
+  opacity: 0.5;
   /* display: none; */
 }
+.name_hidden {
+  display: none;
+}
+.name_appear {
+
+}
+
 /* ユーザー検索ボックス */
 
 .chat_textarea {
@@ -277,3 +285,9 @@ border: 2px solid #ed04d5;
   display: block;
 }
 /* 新着通知 */
+/* チャットデリート */
+.chat_delete_btn {
+  border-style: none;
+  background: rgba(0,0,0,0);
+}
+/* チャットデリート */

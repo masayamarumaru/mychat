@@ -78,14 +78,19 @@
             @endif
             <div>既読{{ $chat->read_count() }}</div>
         </span>
+
         <div class="reaction_box box-1">
-          1
+          <form class="" method="post" action="{{ action('TalkController@delete_chat', $chat->id) }}">
+            {{ csrf_field() }}
+            {{ method_field('delete') }}
+              <input class="chat_delete_btn" type="submit" value="X">
+          </form>
         </div>
         <div class="reaction_box box-2">
           2
         </div>
         <div class="reaction_box box-3">
-          ３
+
         </div>
 
     </li>

@@ -21,6 +21,7 @@
           <img class="glass_icon" src="../img/glass_icon.svg" width="40px" height="40px">
           <!-- 検索 -->
           <div class="search_user wrapper">
+
             <div class="search-area">
               <form>
                 <input type="text" id="search-text" placeholder="検索ワードを入力">
@@ -30,19 +31,22 @@
                 <div id="search-result__list"></div>
               </div>
             </div>
-            <ul class="target-area">
-              @forelse($global_users as $global_user)
-              <li class="">
-                <form name="user_id" method="get" action='{{ action('TalkController@indivi_room', $global_user->id) }}'>
-                  {{ csrf_field() }}
-                  @if($global_user->id !== $user->id)
-                    <input type="hidden"><a href="/chats/indivi/{{ $global_user->id }}">{{ $global_user->name }}</a></input>
-                  @endif
-                </form>
-              </li>
-              @empty
-              @endforelse
-            </ul>
+
+              <div>
+                <ul class="target-area">
+                  @forelse($global_users as $global_user)
+                    @if($global_user->id !== $user->id)
+                      <li class="name_hidden">
+                        <form name="user_id" method="get" action='{{ action('TalkController@indivi_room', $global_user->id) }}'>
+                          {{ csrf_field() }}
+                          <input type="hidden"><a href="/chats/indivi/{{ $global_user->id }}">{{ $global_user->name }}</a></input>
+                        </form>
+                      </li>
+                    @endif
+                  @empty
+                  @endforelse
+                </ul>
+              </div>
           </div>
           <!-- 検索 -->
 
@@ -58,6 +62,24 @@
    @yield('ajax')
    <script>
    // 検索
+    $(function() {
+      searchWord = function(){
+        var searchText = $(this).val(),
+            targetText;
+        $('.target-area li').each(function() { //usersテーブルをみる
+          targetText = $(this).text();
+
+        if (targetText.indexOf(searchText) != -1) {
+          $(this).removeClass('name_hidden');
+        } else {
+          $(this).removeClass('name_hidden');
+        }
+      });
+    };
+        $('#search_text').on('input',searchWord);
+    });
+
+
 
    // 検索
    </script>

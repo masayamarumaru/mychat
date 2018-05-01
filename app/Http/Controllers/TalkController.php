@@ -91,12 +91,16 @@ class TalkController extends Controller
       }
     }
     $new_room = new Room();
-    // dd(array($user->id,$now_user->id));
     $new_room->title = $user->name.'と'.$now_user->name.'のROOM';
     $new_room->save();
     $new_room->users()->attach(array($user->id,$now_user->id));
     $create_room = $rooms->sortByDesc('id')->first();
     return redirect('/chats/'.$create_room->id);
+  }
+
+  public function delete_chat(Chat $chat) {
+    $chat->delete();
+    return redirect()->back();
   }
 
 }

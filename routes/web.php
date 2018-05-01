@@ -30,14 +30,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/chats', 'ChatsController@index');
 Route::get('/chats/create', 'ChatsController@create');
 Route::post('/chats/createroom', 'ChatsController@createroom');
-Route::get('/chats/{room}', 'ChatsController@room')->where('room', '[0-9]+');;
-Route::delete('/chats/{room}','ChatsController@destroy')->where('room', '[0-9]+');;
-Route::get('/chats/{room}/edit', 'ChatsController@edit')->where('room', '[0-9]+');;
-Route::patch('/chats/{room}', 'ChatsController@update')->where('room', '[0-9]+');;
+Route::get('/chats/{room}', 'ChatsController@room')->where('room', '[0-9]+');
+Route::delete('/chats/{room}','ChatsController@destroy')->where('room', '[0-9]+');
+Route::get('/chats/{room}/edit', 'ChatsController@edit')->where('room', '[0-9]+');
+Route::patch('/chats/{room}', 'ChatsController@update')->where('room', '[0-9]+');
+
 
 //トーク
 Route::get('/chats/{room}/search', 'TalkController@search_result');
 Route::post('/chats/{room}/create', 'TalkController@ajax_post')->where('room', '[0-9]+');
+Route::delete('/chats/del_chat/{chat}','TalkController@delete_chat')->where('chat', '[0-9]+');
+
 //個人ROOM
 Route::get('chats/indivi/{user}', 'TalkController@indivi_room');
 
