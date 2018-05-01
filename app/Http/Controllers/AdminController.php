@@ -12,6 +12,8 @@ use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Config;
+use App\Chat;
+use Excel;
 
 class AdminController extends Controller
 {
@@ -114,6 +116,20 @@ class AdminController extends Controller
         $config->save();
 
         return redirect('/admin/config');
+      }
+
+      public function file_down() {
+        return view('admin.file_down');
+      }
+
+      public function file_create() {
+        $chats = Chat::all();
+
+        Excel::create('chats', function($excel) use($chats) {
+          $excel->sheet('Sheet 1', function($sheet) use($chats) {
+            $sheet->fromArray($chats);
+          });
+        })->export('xls');
       }
 
 }

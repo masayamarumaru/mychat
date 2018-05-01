@@ -20,6 +20,9 @@
         <li>
           <a href="/admin/config">各種設定</a>
         </li>
+         <li>
+           <a href="/admin/file_down">ファイルダウンロード</a>
+         </li>
       </ol>
 
   </body>

@@ -38,7 +38,8 @@ Route::patch('/chats/{room}', 'ChatsController@update')->where('room', '[0-9]+')
 //トーク
 Route::get('/chats/{room}/search', 'TalkController@search_result');
 Route::post('/chats/{room}/create', 'TalkController@ajax_post')->where('room', '[0-9]+');
-
+//個人ROOM
+Route::get('chats/indivi/{user}', 'TalkController@indivi_room');
 
 //管理画面
 Route::get('/admin', 'AdminController@index');
@@ -47,6 +48,7 @@ Route::get('/admin/users', 'AdminController@edit_user');
 Route::get('/admin/rooms', 'AdminController@edit_room');
 Route::get('/admin/users_chat/{user}', 'AdminController@users_chat');
 Route::get('/admin/config', 'AdminController@config');
+Route::get('/admin/file_down', 'AdminController@file_down');
 //スタンプ作成,削除
 Route::post('/admin/stamp/create', 'AdminController@create_stamp');
 Route::delete('/admin/stamp/{stamp}', 'AdminController@destroy_stamp');
@@ -59,3 +61,5 @@ Route::patch('/admin/rooms/{room}', 'AdminController@room_update');
 Route::post('/admin/rooms', 'AdminController@create_room');
 //設定
 Route::post('/admin/config/change', 'AdminController@disp_change');
+//ファイルダウンロード
+Route::get('/admin/file_create', 'AdminController@file_create');

@@ -25,18 +25,27 @@
           @if($room->hasUser())
             <li class="room_show">
 
-                <tr>
+                <tr style="text-align:center">
                     <td>
                       <a href="{{ action('ChatsController@room', $room) }}" class="">{{ $room->title }}</a>
+                        @if($room->new_chats_count() !== 0)
+                        <div class="new_chat_info">
+                          <div class="balloon3">
+                              {{ $room->new_chats_count() }}件
+                          </div>
+                        </div>
+                        @endif
                     </td>
-                    <td class="join_users">
-                      {{ $room->users->count() }}人参加中
-                      <div class="join_user_box">
-                        @forelse($room->users as $user)
-                          <li>$user->name</li>
-                        @empty
-                        @endforelse
-                      </div>
+                    <td>
+                        <div class="join_users">
+                          {{ $room->users->count() }}人参加中
+                          <div class="join_user_box">
+                            @forelse($room->users as $user)
+                              <li style="list-style:none">{{ $user->name}}</li>
+                            @empty
+                            @endforelse
+                          </div>
+                        </div>
                     </td>
                     <td>
                       <a href="{{ action('ChatsController@edit', $room) }}">[メンバー追加]</a>
@@ -62,5 +71,16 @@
 
 <div class="container">
 </div>
+@endsection
+
+@section('ajax')
+<script>
+
+  $('.join_users').hover(
+    function(){$(this).find('.join_user_box').addClass('join_user_box_block');},
+    function(){$(this).find('.join_user_box').removeClass('join_user_box_block');}
+  );
+
+</script>
 
 @endsection

@@ -164,6 +164,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Maatwebsite\Excel\ExcelServiceProvider::class,//Excel
+
+        Barryvdh\Debugbar\ServiceProvider::class,//追加
+
+        App\Providers\ViewComposers\ComposerSearviceProvider::class,//global_user
     ],
 
     /*
@@ -217,6 +222,9 @@ return [
 
         'Form' => Collective\Html\FormFacade::class, // 追加
         'Html' => Collective\Html\HtmlFacade::class, // 追加
+
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,//追加
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,//追加
 
     ],
 

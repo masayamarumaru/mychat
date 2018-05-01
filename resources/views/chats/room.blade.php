@@ -10,27 +10,41 @@
 
 <form id="ajax_post" method="post" action='{{ action('TalkController@ajax_post', $room) }}'>
   @if ($errors->has('body'))
-<span class="error">{{ $errors->first('body') }}</span>
-@endif
-  {{ csrf_field() }}
-  <p>
-    <textarea class="chat_textarea" name="body" rows="4" cols="80" placeholder="enter post"></textarea>
-  </p>
-  <p>
-    <input class="chat_submit" type="submit" value="投稿">
-  </p>
-  <div class="stamp_zone">
-  <h3>スタンプ</h3>
-    @forelse($stamps as $stamp)
-    <ul class="show_stamp1">
-      <li class="inline"><input class="show_stamp" type="image" name="s"
-         value="{{ $stamp->id }}" src="../storage/img/{{ $stamp->stamp_path }}" width="50" height="50"></li>
-    </ul>
-  @empty
-  スタンプがありません
-  @endforelse
-  </div>
-  <input id="stamp" type="hidden" name="stamp"></input>
+  <span class="error">{{ $errors->first('body') }}</span>
+  @endif
+    {{ csrf_field() }}
+    <p>
+      <textarea class="chat_textarea" name="body" rows="4" cols="80" placeholder="enter post"></textarea>
+    </p>
+    <p>
+      <input class="chat_submit" type="submit" value="投稿">
+    </p>
+      <div class="stamp_zone bootstrap">
+
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"><a data-toggle="collapse" href="#collapse1">スタンプ</a></h4>
+              </div>
+
+                <div id="collapse1" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    @forelse($stamps as $stamp)
+                    <ul class="show_stamp1 ">
+                      <li class="inline"><input class="show_stamp" type="image" name="s"
+                         value="{{ $stamp->id }}" src="../storage/img/{{ $stamp->stamp_path }}" width="50" height="50"></li>
+                    </ul>
+                    @empty
+                    スタンプがありません
+                    @endforelse
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+      </div>
+    <input id="stamp" type="hidden" name="stamp"></input>
 </form>
 
 <div class="talk_header">
@@ -121,7 +135,7 @@
             $('.new_post > div').css('clear','both');
             $('.new_post').prepend("<li>"+result.body+"&nbsp;"+"</li>");
             $('.new_post li:first').addClass("posted_chat login_user");
-            $('.new_post li:first').append("<span>"+"&nbsp;"+"("+result.post_use+")"+"&nbsp;"+"now"+"</span>");
+            $('.new_post li:first').append("<span>"+"&nbsp;"+"("+result.post_user+")"+"&nbsp;"+"now"+"</span>");
             $('.new_post li:first span').addClass("user_info");
 
           } else {

@@ -3,6 +3,66 @@ body{
   margin-left: auto;
 }
 
+h1 {
+  margin: 0;
+}
+
+.header_style {
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  margin-bottom: 10px;
+  height: 50px;
+  align-items: center;
+  position: relative;
+}
+.glass_icon {
+  position: absolute;
+  right: 200px;
+  top: 5px;
+}
+.search_user {
+  position: absolute;
+  right: 5px;
+  top: 12px;
+}
+/* ユーザー検索ボックス */
+.search-area input[type="text"] {
+  padding: 5px 5px 3px;
+  font-size: 16px;
+  border: 1px solid #D6D6D6;
+}
+
+.search-area input[type="text"]:focus {
+  background: #F9F9F9;
+}
+
+.search-result {
+  margin-top: 20px;
+}
+.search-result__hit-num span {
+  font-weight: bold;
+}
+#search-result__list {
+  margin-top: 15px;
+}
+#search-result__list span {
+  display: inline-block;
+  margin-right: 15px;
+  padding: 5px;
+  background: #F2F2F2;
+}
+.target-area {
+  margin-top: 15px;
+  padding: 10px 0 5px 0;
+  text-align: center;
+  background: #eaf9d4;
+  border: 2px solid #01b236;
+  border-radius: 10px;
+  /* display: none; */
+}
+/* ユーザー検索ボックス */
+
 .chat_textarea {
   font-size: 15px;
 }
@@ -91,12 +151,7 @@ ul {
 }
 
 
-h1 {
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-}
+
 
 .header {
 
@@ -177,19 +232,48 @@ h1 {
   position: relative;
 }
 .join_user_box {
-  /* */
+
   background: #f9e3e5;
   padding: 5px;
   with: 150px;
   height: auto;
-  border: 1px solid black;
+  border: 3px solid black;
   border-radius: 5px;
   position: absolute;
-  right: -80px;
-  top: -50px;
+  right: -110px;
+  top: -80px;
   display: none;
 }
 .join_user_box_block {
   display: block;
 }
 /* index/ */
+/* 新着通知 */
+.balloon3 {
+position: absolute;
+display: inline-block;
+margin:  0px;
+padding: 0px;
+width: 45px;
+height: 45px;
+line-height: 40px;
+vertical-align: middle;
+text-align: center;
+color: #black;
+font-size: 5px;
+font-weight: bold;
+background: #fcf2fb;
+border-radius: 50%;
+box-sizing: border-box;
+right: -20px;
+top: -45px;
+border: 2px solid #ed04d5;
+}
+.new_chat_info {
+  position: relative;
+  /* display: none; */
+}
+.new_chat_info_block {
+  display: block;
+}
+/* 新着通知 */

@@ -9,6 +9,7 @@ use App\Http\Requests\PostRequest;
 use App\Room;
 use App\Chat;
 use Carbon\Carbon;
+use App\UserRoom;
 
 class TalkController extends Controller
 {
@@ -78,4 +79,24 @@ class TalkController extends Controller
                                         'user' => $user,
                                         'now' => $now]);
   }
+
+  public function indivi_room(User $user) {
+    $now_user = Auth::user();
+    $rooms = Room::get();
+    foreach($rooms as $room){
+      if($room->users()->count() === 2){
+        if($room->users->contains($user->id) && $room->users->contains($now_user->id)){
+            return redirect('/chats/'.$room->id);
+          }
+      }
+    }
+    $new_room = new Room();
+    // dd(array($user->id,$now_user->id));
+    $new_room->title = $user->name.'と'.$now_user->name.'のROOM';
+    $new_room->save();
+    $new_room->users()->attach(array($user->id,$now_user->id));
+    $create_room = $rooms->sortByDesc('id')->first();
+    return redirect('/chats/'.$create_room->id);
+  }
+
 }

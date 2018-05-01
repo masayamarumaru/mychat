@@ -55,10 +55,9 @@ class ChatsController extends Controller
       $x = Config::get()->last();
       $config = $x->chats_disp;
       $now = Carbon::now();
-    // 既読処理
+    // 既読処理 要改善
       $reads = Readchat::where('user_id', $user->id)->get();
       $chats = $room->chats()->where('user_id', '!=', $user->id)->get();
-      // dd($reads);
         foreach($chats as $chat) {
           $isMatch = false;
             foreach($reads as $read) {
@@ -103,4 +102,6 @@ class ChatsController extends Controller
       $room->delete();
       return redirect('/chats');
     }
+
+
 }
