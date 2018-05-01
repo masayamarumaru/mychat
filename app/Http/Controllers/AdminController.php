@@ -15,15 +15,18 @@ use App\Config;
 use App\Chat;
 use Excel;
 
+
+
 class AdminController extends Controller
 {
+      public function __construct() {
+        $this->middleware('admin');
+      }
+
       public function index() {
         $user = Auth::user();
-        if($user->is_admin){
         return view('admin.admin_index');
-      }else{
-        return view('admin.not_admin');
-      }
+        // return view('admin.not_admin');
     }
 
       public function stamp() {

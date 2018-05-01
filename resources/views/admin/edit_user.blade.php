@@ -38,7 +38,8 @@
           <td>{{ $user->id }}</td>
           <td><input type="text" name="user_name" value="{{ old('name', $user->name) }}"></td>
           <td>{{ $user->created_at }}</td>
-          <td class="join_user"><a href="#ex1" rel="modal:open">{{ $user->rooms()->count() }}</a></td>
+          <td class="join_user">{{ $user->rooms()->count() }}</td>
+          <!-- <td class="join_user"><a href="#ex1" rel="modal:open">{{ $user->rooms()->count() }}</a></td> -->
           <td><input type="submit" value="更新"></td>
         </form>
 
