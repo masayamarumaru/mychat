@@ -17,7 +17,7 @@
 
 @endsection
 
-@section('menu', 'ユーザー管理')
+@section('menu', 'ルーム管理')
 
 @section('header-btn')
 
@@ -34,14 +34,15 @@
     @endif
     {{ csrf_field() }}
   <ul>
-  @forelse($users as $user)
-    <li>
-      <input type="checkbox" name="user[]" value="{{ $user->id }}">
-      {{ $user->name }}
-    </li>
-  @empty
-    <li>ユーザーがいません</li>
-  @endforelse
+    <select class="user_select" size="2" multiple name="user[]">
+      @forelse($users as $user)
+        <option name="user[]" value="{{ $user->id }}">
+          {{ $user->name }}
+        </option>
+      @empty
+      @endforelse
+    </select>
+
   </ul>
     <input type="submit" value="Add">
   </form>
@@ -64,7 +65,7 @@
           <td>
             <select class="user_select" size="2" multiple name="user[]">
               @forelse($users as $user)
-                <option name="user[]" value="{{ $user->id }}" {{ $user->is_join_room($room->id) ? 'checked' :'' }} >
+                <option name="user[]" value="{{ $user->id }}" {{ $user->is_join_room($room->id) ? 'selected' :'' }}>
                   {{ $user->name }}
                 </option>
               @empty
@@ -76,7 +77,6 @@
               {{ $user->name }}
             @empty
             @endforelse -->
-
 
           </td>
           <td><input type="submit" value="更新"></td>

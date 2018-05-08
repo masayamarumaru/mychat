@@ -2,6 +2,10 @@
 
 @section('title', 'ROOM作成')
 
+@section('header')
+
+@endsection
+
 @section('menu', 'メンバー追加 ' . $room->title)
 
 @section('content')
@@ -32,5 +36,9 @@
   </p>
 
 </form>
+
+@endsection
+
+@section('ajax')
 
 @endsection
