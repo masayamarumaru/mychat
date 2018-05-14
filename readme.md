@@ -1,2 +1,80 @@
-# 重田のチャットです
-Comming soon....
+# チャット(重田作)
+
+## 導入手順
+リポジトリをクローンorダウンロードしたら、下記の手順で有効化します(Homestead環境を想定)
+
+### コードの配置とサイト設定
+
+#### プロジェクトフォルダへの配置
+Homesteadでのコードフォルダにソースコードをコピーします。
+
+#### Homestead.yamlの編集
+Homestead.yamlに、サイト情報を追加します
+(Homestead環境の/home/vagrant/codeフォルダ以下に配置する場合)
+
+```yaml
+sites:
+	- map: hogefuga.test
+	  to: /home/vagrant/code/hogehoge/public
+	# ↓サイト設定を追記。mapは任意名称
+	- map: shigechat.test
+	  to: /home/vagrant/code/shigechat/public
+...
+databases:
+	- hogehoge
+	# ↓データベースを追加。任意名称
+	- shigechat 
+
+```
+変更後、プロビショニング(サイト設定・DBの再設定)を行います。
+
+```shell
+vagrant reload --provision
+```
+
+これで、新たにデータベースが作成されます。
+
+
+#### hostsファイルの編集
+ローカルのhostsファイルに、上記Homestead.yamlで`sites.map`に追加したサイトを追記します(要sudo)
+
+mac : /private/etc/hosts
+windows : 
+
+```shell
+ sudo vim /private/etc/hosts
+```
+
+hostsファイル
+```
+192.168.10.10 hogehoge.test
+192.168.10.10 shigechat.test # 追記
+```
+
+###  プロジェクトの初期処理
+#### .envの編集
+/.env_exampleをコピーし、データベース設定を変更します。
+
+#### Migration/Seederの実行
+テーブル構築&初期データセットアップを行います。
+プロジェクトフォルダ直下にて下記を実行
+```
+php artisan db:migrate
+php artisan db:seed
+```
+
+### アクセス確認
+http://shigechat.test
+
+ログインフォームが表示されたら正常に配置できています。
+
+### 初期データについて
+`database/seeds`以下に初期データについて記述しています。
+初期状態で以下のユーザを登録済み。
+
+|User |Password |備考 |
+|- | -| -|
+|admin@example.com |mychat |管理者 |
+|user1@example.com |mychat |一般 |
+|user2@example.com |mychat |一般 |
+
