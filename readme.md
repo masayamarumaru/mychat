@@ -1,4 +1,4 @@
-# チャット(重田作)
+# チャットby重田
 
 ## 導入手順
 リポジトリをクローンorダウンロードしたら、下記の手順で有効化します(Homestead環境を想定)
@@ -18,7 +18,7 @@ sites:
 	  to: /home/vagrant/code/hogehoge/public
 	# ↓サイト設定を追記。mapは任意名称
 	- map: shigechat.test
-	  to: /home/vagrant/code/shigechat/public
+	  to: /home/vagrant/code/ShigeChat/public
 ...
 databases:
 	- hogehoge
@@ -38,8 +38,8 @@ vagrant reload --provision
 #### hostsファイルの編集
 ローカルのhostsファイルに、上記Homestead.yamlで`sites.map`に追加したサイトを追記します(要sudo)
 
-mac : /private/etc/hosts
-windows : 
+mac : /private/etc/hosts  
+windows : C:\Windows\System32\drivers\etc\hosts
 
 ```shell
  sudo vim /private/etc/hosts
