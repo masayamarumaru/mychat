@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Stamps;
 
 class CreateStampsTable extends Migration
 {
@@ -15,7 +16,7 @@ class CreateStampsTable extends Migration
     {
         Schema::create('stamps', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('stamp_path')->nullable();
+            $table->string('stamp_path')->nullable();
             $table->timestamps();
         });
     }
