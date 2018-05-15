@@ -42,20 +42,16 @@
           <!-- <td class="join_user"><a href="#ex1" rel="modal:open">{{ $user->rooms()->count() }}</a></td> -->
           <td><input type="submit" value="更新"></td>
         </form>
-
-
         <form method="post" action="{{ action('AdminController@user_destroy', $user->id) }}">
           {{ csrf_field() }}
           {{ method_field('delete') }}
           <td><input type="submit" value="削除"></td>
         </form>
-
         <form class="user_chats" method="get" action="{{ action('AdminController@users_chat', $user->id) }}">
           {{ csrf_field() }}
           <input type="hidden" class="user_id" name="user_id" value="{{ $user->id }}">
           <td><input type="submit" value="投稿詳細"></td>
         </form>
-
       </tr>
     @empty
     @endforelse
