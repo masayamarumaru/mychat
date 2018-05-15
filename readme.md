@@ -63,6 +63,7 @@ DB_DATABASE=shigechat # 作成したデータベース名
 DB_USERNAME=homestead # 環境に依存
 DB_PASSWORD=secret # 環境に依存
 ```
+#### Composer update
 
 #### Migration/Seederの実行
 テーブル構築&初期データセットアップを行います。
