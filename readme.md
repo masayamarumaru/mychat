@@ -53,7 +53,16 @@ hostsファイル
 
 ###  プロジェクトの初期処理
 #### .envの編集
-/.env_exampleをコピーし、データベース設定を変更します。
+ルートフォルダの`.env_example`をコピーし、`.env`にリネームしてデータベース設定を変更します。
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=shigechat # 作成したデータベース名
+DB_USERNAME=homestead # 環境に依存
+DB_PASSWORD=secret # 環境に依存
+```
 
 #### Migration/Seederの実行
 テーブル構築&初期データセットアップを行います。
