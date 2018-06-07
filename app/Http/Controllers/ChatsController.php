@@ -103,5 +103,4 @@ class ChatsController extends Controller
       return redirect('/chats');
     }
 
-
 }
